@@ -7,7 +7,6 @@ import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
 from gymnasium import spaces
-from IPython.display import HTML
 from matplotlib.figure import Figure
 
 
@@ -244,7 +243,7 @@ def generate_random_rollouts(
             batch_actions.clear()
 
 
-def load_and_animate_rollouts(file_path: str, fps: int = 30) -> HTML:
+def load_and_animate_rollouts(file_path: str, fps: int = 30) -> str:
     # 1. Daten aus dem .npz Archiv laden
     data: np.lib.npyio.NpzFile = np.load(file_path)
     observations: np.ndarray = data["obs"]  # Shape: (N, 64, 64, 3)
@@ -281,8 +280,7 @@ def load_and_animate_rollouts(file_path: str, fps: int = 30) -> HTML:
     # Schließen der Figure, damit sie nicht doppelt als statisches Bild gerendert wird
     plt.close(fig)
 
-    # Als HTML5-Video direkt in Colab einbetten
-    return HTML(anim.to_jshtml())
+    return anim.to_jshtml()
 
 
 def analyze_ood_start_conditions(env: gym.Env, num_episodes: int = 100) -> Figure:

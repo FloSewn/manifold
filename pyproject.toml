@@ -8,11 +8,10 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "gymnasium>=1.4.0",
-    "ipython>=9.17.1",
-    "matplotlib>=3.11.2",
-    "numpy>=2.5.4",
-    "opencv-python-headless>=5.0.0.93",
+    "gymnasium>=1.0.0",               # Colab hat 1.4.0
+    "numpy>=2.1.0",                   # Colab hat 2.1.3
+    "matplotlib>=3.10.0",             # Colab hat 3.10.0
+    "opencv-python-headless>=4.11.0", # 4er oder 5er Versionen sind beide absolut fein
 ]
 
 [build-system]
